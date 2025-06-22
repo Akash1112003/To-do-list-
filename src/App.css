@@ -1,0 +1,220 @@
+/* ========= Root Styles ========== */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  animation: fadeInUp 1s ease;
+}
+
+body {
+  background: linear-gradient(145deg, #f0f4ff, #ffffff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ========= Header ========= */
+.header {
+  margin-bottom: 2rem;
+  animation: slideInDown 0.8s ease;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: #3b82f6;
+  margin-bottom: 0.25rem;
+}
+
+.header p {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+/* ========= Form Section ========= */
+.todo-form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.input-wrapper {
+  position: relative;
+  width: 15rem;
+  transition: transform 0.3s ease;
+}
+
+.todo-input {
+  width: 100%;
+  padding: 1.25rem 1rem 0.5rem 1rem; /* Enough top padding for label */
+  font-size: 1rem;
+  border: 1px solid #3b82f6;
+  border-radius: 0.75rem;
+  background-color: white;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+  color: #111827; /* Text color */
+}
+
+.todo-input::placeholder {
+  color: transparent; /* Hide placeholder if it's just for floating label */
+}
+
+.todo-input:focus {
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+.todo-label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1rem;
+  color: #9ca3af;
+  background-color: white;
+  padding: 0 0.3rem;
+  pointer-events: none;
+  transition: 0.2s ease all;
+}
+
+.todo-input:focus + .todo-label,
+.todo-input:not(:placeholder-shown) + .todo-label {
+  top: -0.5rem;
+  left: 0.75rem;
+  font-size: 0.75rem;
+  color: #3b82f6;
+  background-color: white;
+}
+
+.todo-label.error {
+  color: #dc2626;
+}
+
+.todo-input:focus + .todo-label.error {
+  color: #dc2626;
+}
+
+
+/* ========= Buttons ========= */
+.add-button,
+.button {
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: scale(1);
+}
+
+.add-button {
+  background-color: #3b82f6;
+  color: white;
+  border-bottom: 3px solid #2563eb;
+}
+
+.add-button:hover,
+.button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.add-button:active,
+.button:active {
+  transform: scale(0.97);
+  filter: brightness(0.95);
+}
+
+.button-red {
+  background-color: #ef4444;
+  color: white;
+}
+
+.button-blue {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.button-green {
+  background-color: #10b981;
+  color: white;
+}
+
+/* ========= ToDo Item ========= */
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.3s;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.todo-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+.todo-text {
+  flex-grow: 1;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.completed-icon {
+  animation: pop 0.5s ease;
+}
+
+/* ========= Misc ========= */
+.error-text {
+  color: #dc2626;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+/* ========= Animations ========= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
